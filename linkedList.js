@@ -48,7 +48,7 @@ function linkedListGenerator() {
 				return module.get(n).next = null;
 			}
 		},
-		
+
 		get : function(n){
 			if (n === 0) {
 				return head;
@@ -67,7 +67,21 @@ function linkedListGenerator() {
 			return false;
 
 		},
-		insert : function(){}
+		insert : function(value, index){
+			var previousNode = module.get(index - 1);
+			var insertedNode = {
+				value : value,
+				next : module.get(index)
+			}
+			previousNode.next = insertedNode;
+			if (index === 0) {
+				head = insertedNode;
+			}
+			else {
+				return false;
+			}
+
+		}
 
 	}
 
