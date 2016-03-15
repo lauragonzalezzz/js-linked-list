@@ -33,16 +33,22 @@ function linkedListGenerator() {
 		remove : function(n){
 			var x = n - 1;
 			var y = n + 1;
-			var previous;
-			var next;
-			
-			previous = module.get(x);
-			next = module.get(y);
-			previous.next = next;
-			module.get(n).next = null;
-			console.log('previous', previous);
-
+			var previous = module.get(x);
+			var next = module.get(y);
+			if (n === 0) {
+				return head = module.get(y);
+			}
+			if (module.get(n).next === null) {
+				tail = previous;
+				return previous.next = null;
+			} else if (module.get(n) === false) {
+				return false;
+			} else {
+				previous.next = next;
+				return module.get(n).next = null;
+			}
 		},
+		
 		get : function(n){
 			if (n === 0) {
 				return head;
